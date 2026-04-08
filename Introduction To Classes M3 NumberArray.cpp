@@ -54,6 +54,24 @@ int main()
     cout << "Max: " << Arr3.GetMax() << endl;
     cout << "Average: " << Arr3.GetAverage() << endl;
     
+    //Randomized Data Test
+    cout << "\nRandom Data Test\n";
+
+    NumberArray Arr4(10);
+
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_real_distribution<> dist(0.0, 100.0);
+
+    for (int i = 0; i < 10; i++)
+        Arr4.SetNumber(i, dist(gen));
+
+    Arr4.Print();
+
+    cout << "Min: " << Arr4.GetMin() << endl;
+    cout << "Max: " << Arr4.GetMax() << endl;
+    cout << "Average: " << Arr4.GetAverage() << endl;
+    
     return 0;
 }
 
