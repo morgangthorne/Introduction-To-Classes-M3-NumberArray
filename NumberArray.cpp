@@ -19,3 +19,26 @@ NumberArray::~NumberArray() {
 	
 	cout << "Destructor called, memory released\n";
 }
+
+//Mutator
+void NumberArray::SetNumber(int index, double value) {
+	if (index >= 0 && index < size)
+		data[index] = value;
+}
+
+//Accessor
+double NumberArray::GetNumber(int index) const {
+	static double DefaultValue = 0.0;
+
+	if (index >= 0 && index < size)
+		return data[index];
+
+	return DefaultValue;
+}
+
+//Minimum
+double NumberArray::GetMin() const {
+
+
+
+}
