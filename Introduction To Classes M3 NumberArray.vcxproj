@@ -124,6 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Introduction To Classes M3 NumberArray.cpp" />
+    <ClCompile Include="NumberArray.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header.h" />
