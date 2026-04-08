@@ -72,6 +72,26 @@ int main()
     cout << "Max: " << Arr4.GetMax() << endl;
     cout << "Average: " << Arr4.GetAverage() << endl;
     
+    //Destructor Test
+    cout << "\nDestructor Test\n";
+    
+    { 
+        NumberArray temp(5);
+        temp.Print();
+    //Destructor should be called here
+    }
+    
+    cout << "\nEdge Case Test\n";
+
+    NumberArray Arr5(1);
+    Arr5.SetNumber(0, -3.5);
+
+    Arr5.Print();
+
+    cout << "Min: " << Arr5.GetMin() << endl;
+    cout << "Max: " << Arr5.GetMax() << endl;
+    cout << "Average: " << Arr5.GetAverage() << endl;
+
     return 0;
 }
 
