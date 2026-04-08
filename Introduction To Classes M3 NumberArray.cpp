@@ -2,9 +2,23 @@
 //
 
 #include <iostream>
+#include <random>
+#include "Header.h"
+
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    cout << "Construct test\n";
+
+    //Default Constructor
+    NumberArray Arr1;
+    Arr1.Print();
+
+    //Constructor with Params
+    NumberArray Arr2(5);
+    Arr2.Print();
+
+    return 0;
 }
 
