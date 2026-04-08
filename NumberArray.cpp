@@ -38,7 +38,34 @@ double NumberArray::GetNumber(int index) const {
 
 //Minimum
 double NumberArray::GetMin() const {
+	double min = data[0];
 
+	for (int i = 1; i < size; i++) {
+		if (data[i] < min)
+			min = data[i];
+	}
 
+	return min;
+}
 
+//Maximum
+double NumberArray::GetMax() const {
+	double max = data[0];
+
+	for (int i = 1; i < size; i++) {
+		if (data[i] > max)
+			max = data[i];
+	}
+
+	return max;
+}
+
+//Average
+double NumberArray::GetAverage() const {
+	double sum = 0.0;
+
+	for (int i = 0; i < size; i++)
+		sum += data[i];
+
+	return sum / size;
 }
