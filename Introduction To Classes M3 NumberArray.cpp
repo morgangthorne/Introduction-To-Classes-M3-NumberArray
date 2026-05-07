@@ -32,12 +32,41 @@ int main()
     cout << Arr2.GetNumber(4) << endl;
     
     //Invalid Index test
-    Arr2.SetNumber(-1, 100);
-    Arr2.SetNumber(5, 100);
+    try {
+        Arr2.SetNumber(-1, 100);
+    }
+    catch (const out_of_range& e) {
+        cout << "Exception caught: " << e.what() << endl;
+    }
+    try {
+        Arr2.SetNumber(5, 100);
+    }
+    catch (const out_of_range& e) {
+        cout << "Exception caught: " << e.what() << endl;
+    }
+    try {
+        cout << Arr2.GetNumber(-1) << endl;
+    }
+    catch (const out_of_range& e) {
+        cout << "Exception caught: " << e.what() << endl;
+    }
+    try {
+        cout << Arr2.GetNumber(5) << endl;
+    }
+    catch (const out_of_range& e) {
+        cout << "Exception caught: " << e.what() << endl;
+    }
 
-    cout << "Invalid get: " << Arr2.GetNumber(-1) << endl;
-    cout << "Invalid get: " << Arr2.GetNumber(5) << endl;
-    
+
+
+
+
+
+
+
+
+
+
     //Stat Test
     cout << "\n Stat Test\n";
 

@@ -3,6 +3,7 @@
 #define NumberArray_H
 
 #include <iostream>
+#include <stdexcept>
 
 using namespace std;
 
@@ -64,19 +65,19 @@ NumberArray<T>::~NumberArray() {
 //Mutator
 template <typename T>
 void NumberArray<T>::SetNumber(int index, T value) {
-	if (index >= 0 && index < size)
-		data[index] = value;
+	if (index < 0 || index >= size)
+		throw out_of_range("Invalid index in SetNumber");
+
+	data[index] = value;
 }
 
 //Accessor
 template <typename T>
 T NumberArray<T>::GetNumber(int index) const {
-	static T DefaultValue = T();
+	if (index < 0 || index >= size)
+		throw out_of_range("Invalid index in GetNumber");
 
-	if (index >= 0 && index < size)
-		return data[index];
-
-	return DefaultValue;
+	return data[index];
 }
 
 //Minimum
