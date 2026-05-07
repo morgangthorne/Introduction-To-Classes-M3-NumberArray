@@ -1,5 +1,6 @@
-// Introduction To Classes M3 NumberArray.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+//Filename:  Introduction To Classes M3 NumberArray.cpp 
+//Programmer: Morgan Thorne
+//Date: April 2026
 
 #include <iostream>
 #include <random>
@@ -12,11 +13,11 @@ int main()
     cout << "Construct test\n";
 
     //Default Constructor
-    NumberArray Arr1;
+    NumberArray<double> Arr1;
     Arr1.Print();
 
     //Constructor with Params
-    NumberArray Arr2(5);
+    NumberArray<double> Arr2(5);
     Arr2.Print();
 
     //Validation for set/get
@@ -40,7 +41,7 @@ int main()
     //Stat Test
     cout << "\n Stat Test\n";
 
-    NumberArray Arr3(5);
+    NumberArray<double> Arr3(5);
 
     Arr3.SetNumber(0, 2.0);
     Arr3.SetNumber(1, 4.0);
@@ -57,7 +58,7 @@ int main()
     //Randomized Data Test
     cout << "\nRandom Data Test\n";
 
-    NumberArray Arr4(10);
+    NumberArray<double> Arr4(10);
 
     random_device rd;
     mt19937 gen(rd());
@@ -76,14 +77,14 @@ int main()
     cout << "\nDestructor Test\n";
     
     { 
-        NumberArray temp(5);
+        NumberArray<double> temp(5);
         temp.Print();
     //Destructor should be called here
     }
     
     cout << "\nEdge Case Test\n";
 
-    NumberArray Arr5(1);
+    NumberArray<double> Arr5(1);
     Arr5.SetNumber(0, -3.5);
 
     Arr5.Print();

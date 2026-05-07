@@ -6,10 +6,13 @@
 
 using namespace std;
 
+
+template <typename T>
+
 class NumberArray {
 private:
 	int size;
-	double* data;
+	T* data;
 
 	static const int Max_Size = 10;
 
@@ -19,14 +22,14 @@ public:
 	~NumberArray();
 
 	//Mutator
-	void SetNumber(int index, double value);
+	void SetNumber(int index, T value);
 
 	//Accessor
-	double GetNumber(int index) const;
+	T GetNumber(int index) const;
 
 	//Stats
-	double GetMin() const;
-	double GetMax() const;
+	T GetMin() const;
+	T GetMax() const;
 	double GetAverage() const;
 
 	//Print
@@ -34,5 +37,92 @@ public:
 
 };
 
+
+
+//constructor
+template <typename T>
+NumberArray<T>::NumberArray(int s) {
+	if (s <= 0)
+		size = Max_Size;
+	else
+		size = s;
+
+	data = new T[size];
+
+	for (int i = 0; i < size; i++)
+		data[i] = T();
+}
+
+//Destructor
+template <typename T>
+NumberArray<T>::~NumberArray() {
+	delete[] data;
+
+	cout << "\nDestructor called, memory released\n";
+}
+
+//Mutator
+template <typename T>
+void NumberArray<T>::SetNumber(int index, T value) {
+	if (index >= 0 && index < size)
+		data[index] = value;
+}
+
+//Accessor
+template <typename T>
+T NumberArray<T>::GetNumber(int index) const {
+	static T DefaultValue = T();
+
+	if (index >= 0 && index < size)
+		return data[index];
+
+	return DefaultValue;
+}
+
+//Minimum
+template <typename T>
+T NumberArray<T>::GetMin() const {
+	double min = data[0];
+
+	for (int i = 1; i < size; i++) {
+		if (data[i] < min)
+			min = data[i];
+	}
+
+	return min;
+}
+
+//Maximum
+template<typename T>
+T NumberArray<T>::GetMax() const {
+	double max = data[0];
+
+	for (int i = 1; i < size; i++) {
+		if (data[i] > max)
+			max = data[i];
+	}
+
+	return max;
+}
+
+//Average
+template <typename T>
+double NumberArray<T>::GetAverage() const {
+	double sum = 0.0;
+
+	for (int i = 0; i < size; i++)
+		sum += data[i];
+
+	return sum / size;
+}
+
+//Print
+template <typename T>
+void NumberArray<T>::Print() const {
+	for (int i = 0; i < size; i++)
+		cout << data[i] << " ";
+
+	cout << endl;
+}
 
 #endif
