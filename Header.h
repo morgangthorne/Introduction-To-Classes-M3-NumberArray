@@ -21,6 +21,7 @@ public:
 	//Constuct and Destruct
 	NumberArray(int size = Max_Size);
 	NumberArray(const NumberArray<T>& other);
+	NumberArray<T>& operator=(const NumberArray<T>& other);
 	~NumberArray();
 
 	//Mutator
@@ -58,11 +59,36 @@ NumberArray<T>::NumberArray(int s) {
 template <typename T>
 NumberArray<T>::NumberArray(const NumberArray<T>& other) {
 	size = other.size;
-	date = new T[size];
+	data = new T[size];
 
 	for (int i = 0; i < size; i++) {
 		data[i] = other.data[i];
 	}
+}
+
+
+//Assignmnet Operator
+template <typename T>
+NumberArray<T>& NumberArray<T>::operator=(const NumberArray<T>& other) {
+	//Self Assignment Check
+	if (this == &other)
+		return *this;
+
+	//Releases Old Memory
+	delete[] data;
+
+	//Copies Size
+	size = other.size;
+	
+	//Allocates New Memory 
+	data = new T[size];
+
+	//Copies Values
+	for (int i = 0; i < size; i++) {
+		data[i] = other.data[i];
+	}
+
+	return *this;
 }
 
 

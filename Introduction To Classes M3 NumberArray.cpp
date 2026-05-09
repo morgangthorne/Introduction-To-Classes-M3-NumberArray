@@ -101,6 +101,43 @@ int main()
     cout << "Copied Array:\n";
     Copy.Print();
 
+    //Assignment Operator Test
+    cout << "\nAssignment Operator Test\n";
+
+    NumberArray<double> First(3);
+
+    First.SetNumber(0, 5.5);
+    First.SetNumber(1, 6.6);
+    First.SetNumber(2, 7.7);
+
+    NumberArray<double> Second(3);
+
+    Second = First;
+
+    cout << "First Array:\n";
+    First.Print();
+
+    cout << "Second Array After Assignment:\n";
+    Second.Print();
+
+    //Modify The Original
+    First.SetNumber(1, 100.0);
+
+    cout << "\nAfter Modifying First Array:\n";
+
+    cout << "First Array:\n";
+    First.Print();
+
+    cout << "Second Array:\n";
+    Second.Print();
+
+    //Self Assignment Test
+    cout << "\nSelf Assignment Test\n";
+    
+    First = First;
+    
+    First.Print();
+    
     //Modify the original
     Original.SetNumber(0, 99.9);
 
