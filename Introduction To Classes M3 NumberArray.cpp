@@ -20,6 +20,21 @@ int main()
     NumberArray<double> Arr2(5);
     Arr2.Print();
 
+    //Integer Template TEst
+    cout << "\nInteger Template Test\n";
+
+    NumberArray<int> IntArray(5);
+
+    for (int i = 0; i < 5; i++) {
+        IntArray.SetNumber(i, (i + 1) * 10);
+    }
+
+    IntArray.Print();
+
+    cout << "Min: " << IntArray.GetMin() << endl;
+    cout << "Max: " << IntArray.GetMax() << endl;
+    cout << "Average: " << IntArray.GetAverage() << endl;
+
     //Validation for set/get
     cout << "\nSet/Get Tests\n";
 
@@ -57,13 +72,7 @@ int main()
         cout << "Exception caught: " << e.what() << endl;
     }
 
-
-
-
-
-
-
-
+    cout << "\nProgram Continued After The Exception Handling.\n";
 
 
 
