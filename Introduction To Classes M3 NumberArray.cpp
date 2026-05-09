@@ -10,7 +10,7 @@ using namespace std;
 
 int main()
 {
-    cout << "Construct test\n";
+    cout << "===== Construct test =====\n";
 
     //Default Constructor
     NumberArray<double> Arr1;
@@ -21,7 +21,7 @@ int main()
     Arr2.Print();
 
     //Integer Template TEst
-    cout << "\nInteger Template Test\n";
+    cout << "\n===== Integer Template Test =====\n";
 
     NumberArray<int> IntArray(5);
 
@@ -36,7 +36,7 @@ int main()
     cout << "Average: " << IntArray.GetAverage() << endl;
 
     //Validation for set/get
-    cout << "\nSet/Get Tests\n";
+    cout << "\n===== Set/Get Tests =====\n";
 
     Arr2.SetNumber(0, 2.0);
     Arr2.SetNumber(2, 6.0);
@@ -77,7 +77,7 @@ int main()
 
 
     //Stat Test
-    cout << "\n Stat Test\n";
+    cout << "\n===== Stat Test =====\n";
 
     NumberArray<double> Arr3(5);
 
@@ -94,7 +94,7 @@ int main()
     cout << "Average: " << Arr3.GetAverage() << endl;
 
     //Copy Contructor Test 
-    cout << "\nCopy Constructor Test\n";
+    cout << "\n===== Copy Constructor Test =====\n";
 
     NumberArray<double> Original(3);
 
@@ -110,8 +110,20 @@ int main()
     cout << "Copied Array:\n";
     Copy.Print();
 
+    //Modify the original
+    Original.SetNumber(0, 99.9);
+
+    cout << "\nAfter Modifying Original:\n";
+
+    cout << "Original Array:\n";
+    Original.Print();
+
+    cout << "Copied Array:\n";
+    Copy.Print();
+
+
     //Assignment Operator Test
-    cout << "\nAssignment Operator Test\n";
+    cout << "\n===== Assignment Operator Test =====\n";
 
     NumberArray<double> First(3);
 
@@ -141,27 +153,14 @@ int main()
     Second.Print();
 
     //Self Assignment Test
-    cout << "\nSelf Assignment Test\n";
+    cout << "\n===== Self Assignment Test =====\n";
     
     First = First;
     
     First.Print();
     
-    //Modify the original
-    Original.SetNumber(0, 99.9);
-
-    cout << "\nAfter Modifying Original:\n";
-
-    cout << "Original Array:\n";
-    Original.Print();
-
-    cout << "Copied Array:\n";
-    Copy.Print();
-
-
-    
     //Randomized Data Test
-    cout << "\nRandom Data Test\n";
+    cout << "\n===== Random Data Test =====\n";
 
     NumberArray<double> Arr4(10);
 
@@ -179,7 +178,7 @@ int main()
     cout << "Average: " << Arr4.GetAverage() << endl;
     
     //Destructor Test
-    cout << "\nDestructor Test\n";
+    cout << "\n===== Destructor Test =====\n";
     
     { 
         NumberArray<double> temp(5);
@@ -187,7 +186,7 @@ int main()
     //Destructor should be called here
     }
     
-    cout << "\nEdge Case Test\n";
+    cout << "\n===== Edge Case Test =====\n";
 
     NumberArray<double> Arr5(1);
     Arr5.SetNumber(0, -3.5);
