@@ -83,6 +83,36 @@ int main()
     cout << "Min: " << Arr3.GetMin() << endl;
     cout << "Max: " << Arr3.GetMax() << endl;
     cout << "Average: " << Arr3.GetAverage() << endl;
+
+    //Copy Contructor Test 
+    cout << "\nCopy Constructor Test\n";
+
+    NumberArray<double> Original(3);
+
+    Original.SetNumber(0, 1.1);
+    Original.SetNumber(1, 2.2);
+    Original.SetNumber(2, 3.3);
+
+    cout << "Original Array:\n";
+    Original.Print();
+
+    NumberArray<double> Copy(Original);
+
+    cout << "Copied Array:\n";
+    Copy.Print();
+
+    //Modify the original
+    Original.SetNumber(0, 99.9);
+
+    cout << "\nAfter Modifying Original:\n";
+
+    cout << "Original Array:\n";
+    Original.Print();
+
+    cout << "Copied Array:\n";
+    Copy.Print();
+
+
     
     //Randomized Data Test
     cout << "\nRandom Data Test\n";

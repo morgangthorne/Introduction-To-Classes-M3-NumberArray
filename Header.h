@@ -20,6 +20,7 @@ private:
 public:
 	//Constuct and Destruct
 	NumberArray(int size = Max_Size);
+	NumberArray(const NumberArray<T>& other);
 	~NumberArray();
 
 	//Mutator
@@ -53,6 +54,17 @@ NumberArray<T>::NumberArray(int s) {
 	for (int i = 0; i < size; i++)
 		data[i] = T();
 }
+
+template <typename T>
+NumberArray<T>::NumberArray(const NumberArray<T>& other) {
+	size = other.size;
+	date = new T[size];
+
+	for (int i = 0; i < size; i++) {
+		data[i] = other.data[i];
+	}
+}
+
 
 //Destructor
 template <typename T>
